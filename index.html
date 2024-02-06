@@ -22,11 +22,71 @@
     <header>
         <img class="header__logo" src="img/cat_logo.bmp">
         <div class="header__control">
-            <button class='btn_add_cat'data-add_cat>Add Cat</button>
+            <button class='btn_add_cat'data-add_cat_btn>Add Cat</button>
         </div>
     </header>
     
     
     <main class="wrapper" data-wrapper></main>
+    
+    <div class="modal-card-cat modal-card-cat-hidden" data-action="modal" data-card_cat></div>
+    
+    <div class='form-edit-cat form-edit-cat-hidden' data-form_edit_cat>
+        <div class="form-cat-edit-modal" data_form_edit>
+            <h8 class="form-cat-edit-modal-title">Edit Cat</h8>
+            <button type="button" class="btn-close" data-btn_close_modal_edit_cat aria-label="Close"></button>
+            <form data-form name="cats_edit">
+                <div class="mb-3">
+                 <input name="name"  type="text" placeholder="add name" class="form-control" >
+                </div>
+                <div class="mb-3">
+                 <input name="image" type="text" placeholder="add url image" class="form-control" >
+                </div>
+                <div class="mb-3">
+                 <input name="age"  type="number" placeholder="add age" class="form-control" >
+                </div>
+                <div class="mb-3">
+                 <input name="rate"  type="number" placeholder="add rate 0-10" min="0" max="10" class="form-control" >
+                </div>
+                <div class="mb-3">
+                    <textarea name="description" rows="3" placeholder="add a comment" class="form-control"></textarea>
+                </div>
+                <div class="mb-3 form-check">
+                  <input name="favorite" type="checkbox" class="form-check-input" id="exampleCheck2">
+                  <label class="form-check-label" for="exampleCheck2">Favorite</label>
+                </div>
+                <button data-submut_edit type="submit" class="btn btn-primary send">Submit</button>
+            </form>      
+        </div>
+    </div>
+
+    <div class='form-add-cat form-add-cat-hidden' data-form_add_cat>
+        <div class="form-cat-add-modal">
+            <h8 class="form-cat-add-modal-title">Add Cat</h8>
+            <button type="button" class="btn-close" data-btn_close_modal_add_cat aria-label="Close"></button>
+            <form data-form_add name="cat_add">
+                <div class="mb-3">
+                 <input name="name"  type="text" placeholder="add name" class="form-control" >
+                </div>
+                <div class="mb-3">
+                 <input name="image" type="text" placeholder="add url image" class="form-control" >
+                </div>
+                <div class="mb-3">
+                 <input name="age"  type="number" placeholder="add age" class="form-control" >
+                </div>
+                <div class="mb-3">
+                 <input name="rate"  type="number" placeholder="add rate 0-10" min="0" max="10" class="form-control" >
+                </div>
+                <div class="mb-3">
+                    <textarea name="description" rows="3" placeholder="add a comment" class="form-control"></textarea>
+                </div>
+                <div class="mb-3 form-check">
+                  <input name="favorite" type="checkbox" class="form-check-input" id="exampleCheck2">
+                  <label class="form-check-label" for="exampleCheck2">Favorite</label>
+                </div>
+                <button data-submut_edit type="submit" class="btn btn-primary send">Add Cat</button>
+            </form>      
+        </div>
+    </div>
 </body>
 </html>

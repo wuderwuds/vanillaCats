@@ -12,8 +12,7 @@ export async function requestApi(url, method='GET', data= null) {
             headers,
             body
         })
-        if(res.status !==200) {
-            console.log();
+        if(res.status !==200) {            
             return Promise.reject(res)
         } else 
             {return res} 
