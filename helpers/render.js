@@ -1,7 +1,6 @@
-export const $wrapper = document.querySelector('[data-wrapper]')
-export const $modalCardCat = document.querySelector('[data-card_cat]')
-
-const generateAllCardsCats = (data) => {
+import { $wrapper } from "./domElem.js"
+import { $modalCardCat } from "./domElem.js"
+export const generateAllCardsCats = (data) => {
 
 return `<div class="card-cat" data-card_cat_id='${data.id}'>
             <div class="card-cat-content">
@@ -20,7 +19,7 @@ const generateCardCat = (data) => {
 
     return `<div class="modal-card-catt" data-modal_card_cat_id='${data.id}'>
                 <div class="modal-cat-content">
-                    <img class='card-cat-image' src="${data.image}"alt="">
+                    <img class='modal-card-cat-image' src="${data.image}"alt="">
                     <div class='modal-container-card-cat-name_btn'><div class='modal-card-cat-info'>
                     <p><b>Name:</b> ${data.name}</p>
                     <p><b>Age:</b> ${data.age}</p>
@@ -37,15 +36,24 @@ const generateCardCat = (data) => {
             </div>`
     }
 
-export const render = (data) => {
+export const render = (data, to = null) => {
+    const messageDataNull = (to) => {
+        const messageCatListZero = document.createElement('p');
+        const dataCatsNull = 'Список котов пуст, добавьте котов';
+        const dataSearchNull = 'Поиск не дал результатов, такого кота не существует.';
+        if(to === 'search') {
+            messageCatListZero.innerText = dataSearchNull; 
+            return $wrapper.append(messageCatListZero)
+        } else {
+            messageCatListZero.innerText = dataCatsNull; 
+            return $wrapper.append(messageCatListZero)
+        }
+    }
     if(!data) {
         return
     }
     if(data.length===0) {
-        const messageCatListZero = document.createElement('p');
-        messageCatListZero.innerText = 'Список котов пуст, добавьте котов';
-        $wrapper.append(messageCatListZero)
-        
+        return messageDataNull(to)        
     }
     data.forEach(cat=> {
         document.body.style.backgroundColor = 'rgb(255,197,0, 0.3)'

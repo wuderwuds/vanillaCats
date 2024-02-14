@@ -25,7 +25,6 @@ export const apiDeleteCat = async (id) => {
     try {
         return await requestApi(url_DTO('delete', id), 'DELETE');
     } catch (error) {
-        if(error) 
         forCatchError(error);
     }    
 };
