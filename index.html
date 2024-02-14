@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./app.js" type="module"></script>
+    <script src ='./helpers/setting.js' type="module"></script>
+    <script src="./services/requestService.js" type="module"></script>
+    <script src="./DTO/url_DTO.js" type="module"></script>
+    <script src="./controllers/api.js" type="module"></script>
+    <script src="./helpers/render.js" type="module"></script>
+    <script src="./helpers/listener.js" type="module"></script>
+    <script src="./helpers/domElem.js" type="module"></script>
+    <script src="./helpers/registration_autorization.js" type="module"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.18.0/dist/css/uikit.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.css" integrity="sha512-tx5+1LWHez1QiaXlAyDwzdBTfDjX07GMapQoFTS74wkcPMsI3So0KYmFe6EHZjI8+eSG0ljBlAQc3PQ5BTaZtQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./assets/style.css">
+    <title>Cats</title>
+</head>
+
+<body>
+    <header>
+        <div class="containet-btns-log-in">
+            <img class="header__logo" src="img/cat_logo.bmp">
+            <button type="button"class="btn btn-link log-in" data-log_in>LogIn</button>
+            <button type="button" class="log-out btn btn-link" data-log_out>LogOut</button>
+        </div>
+        
+        <div data-search class="search-hidden">
+            <form name='search' class="form-search">
+                <input name="value_search"  type="text" placeholder="search....">    
+            </form>
+        </div>
+
+        <div class="header__control">
+            <button class='btn_add_cat btn-add-cat-hidden'data-add_cat_btn>Add Cat</button>
+        </div>
+    </header>
+    
+    
+    <main class="wrapper" data-wrapper></main>
+    
+    <div class="modal-card-cat modal-card-cat-hidden" data-action="modal" data-card_cat></div>
+    
+    <div class='form-edit-cat form-edit-cat-hidden' data-form_edit_cat>
+        <div class="form-cat-edit-modal" data_form_edit>
+            <h8 class="form-cat-edit-modal-title">Edit Cat</h8>
+            <button type="button" class="btn-close" data-btn_close_modal_edit_cat aria-label="Close"></button>
+            <form data-form name="cats_edit">
+                <div class="mb-3">
+                    <input name="name"  type="text" placeholder="add name" class="form-control" >
+                </div>
+                <div class="mb-3">
+                    <input name="image" type="text" placeholder="add url image"       class="form-control" >
+                </div>
+                <div class="mb-3">
+                    <input name="age"  type="number" placeholder="add age" class="form-control" >
+                </div>
+                <div class="mb-3">
+                    <input name="rate"  type="number" placeholder="add rate 0-10" min="0" max="10" class="form-control" >
+                </div>
+                <div class="mb-3">
+                    <textarea name="description" rows="3" placeholder="add a comment" class="form-control"></textarea>
+                </div>
+                <div class="mb-3 form-check">
+                    <input name="favorite" type="checkbox" class="form-check-input" id="exampleCheck2">
+                    <label class="form-check-label" for="exampleCheck2">Favorite</label>
+                </div>
+                <button data-submut_edit type="submit" class="btn btn-primary send">Submit</button>
+            </form>      
+        </div>
+    </div>
+
+    <div class='form-add-cat form-add-cat-hidden' data-form_add_cat>
+        <div class="form-cat-add-modal">
+            <h8 class="form-cat-add-modal-title">Add Cat</h8>
+            <button type="button" class="btn-close" data-btn_close_modal_add_cat aria-label="Close"></button>
+            <form data-form_add name="cat_add">
+                <div class="mb-3">
+                    <input name="name"  type="text" placeholder="add name" class="form-control" >
+                </div>
+                <div class="mb-3">
+                    <input name="image" type="text" placeholder="add url image" class="form-control" >
+                </div>
+                <div class="mb-3">
+                    <input name="age"  type="number" placeholder="add age" class="form-control" >
+                </div>
+                <div class="mb-3">
+                    <input name="rate"  type="number" placeholder="add rate 0-10" min="0" max="10" class="form-control" >
+                </div>
+                <div class="mb-3">
+                    <textarea name="description" rows="3" placeholder="add a comment" class="form-control"></textarea>
+                </div>
+                <div class="mb-3 form-check">
+                    <input name="favorite" type="checkbox" class="form-check-input" id="exampleCheck3">
+                    <label class="form-check-label" for="exampleCheck3">Favorite</label>
+                </div>
+                <button data-submut_edit type="submit" class="btn btn-primary send">Add Cat</button>
+            </form>      
+        </div>
+    </div>
+   
+   
+    <div class='form-autorization form-autorization-hidden' data-autorization>
+        <div class="autorizatio-modal" >
+            <h8 class="form-cat-add-modal-title">Autorization</h8>
+            <button type="button" class="btn-close" data-btn_close_autorization aria-label="Close"></button>
+            <form name="autorization">
+                <div class="mb-3">
+                    <input name="userName"  type="text" placeholder="add user name" class="form-control" >
+                </div>
+                <div class="mb-3">
+                    <input name="userPass"  type="password" placeholder="add pss" class="form-control" >
+                </div>
+                <div class="container-btns">
+                    <button type="submit" class="btn btn-primary send">OK</button>
+                    <button type="button" class="btn btn-success send" data-btn_registration>Rerister</button>
+                </div>  
+            </form>
+        </div>
+    </div>
+   
+   
+    
+    <div class='form-registration form-registration-hidden' data-registration>
+        <div class="registration-modal">
+            <h8 class="form-cat-add-modal-title">Registration</h8>
+            <button type="button" class="btn-close" data-btn_close_registration aria-label="Close"></button>
+            <form name="registration">
+                <div class="mb-3">
+                    <input name="userName"  type="text" placeholder="add user name" class="form-control" >
+                </div>
+                <div class="mb-3">
+                    <input name="userPass"  type="text" placeholder="add password" class="form-control" >
+                </div>
+                <button  type="submit" class="btn btn-primary send">OK</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

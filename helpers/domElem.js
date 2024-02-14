@@ -1,0 +1,17 @@
+export const $formEditCat = document.querySelector('[data-form_edit_cat]');
+export const $formAddCat = document.querySelector('[data-form_add_cat]');
+export const $formEdit = document.querySelector('[data-form]');
+export const $formAdd = document.querySelector('[data-form_add]');
+export const $btnCloseModalEditCat = document.querySelector('[data-btn_close_modal_edit_cat]');
+export const $btnCloseModalAddCat = document.querySelector('[data-btn_close_modal_add_cat]');
+export const $btnAddcat = document.querySelector('[data-add_cat_btn]');
+export const $wrapper = document.querySelector('[data-wrapper]');
+export const $modalCardCat = document.querySelector('[data-card_cat]');
+export const $search = document.querySelector('[data-search]');
+export const $autorization = document.querySelector('[data-autorization');
+export const $btnCloseAutorization = document.querySelector('[data-btn_close_autorization]');
+export const $btnLogIn = document.querySelector('[data-log_in]');
+export const $btnLogOut = document.querySelector('[data-log_out]');
+export const $btnRegistration = document.querySelector('[data-btn_registration]');
+export const $registration = document.querySelector('[data-registration]');
+export const $btnCloseRegistration = document.querySelector('[data-btn_close_registration]');
