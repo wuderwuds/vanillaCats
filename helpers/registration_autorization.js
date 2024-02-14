@@ -11,6 +11,7 @@ import { $btnRegistration } from "./domElem.js";
 import { $registration } from "./domElem.js";
 import { $btnCloseRegistration } from "./domElem.js";
 import { $search } from "./domElem.js";
+import { $wrapper } from "./domElem.js";
 
 let dbLS;
 const LOCAL = JSON.parse(localStorage.getItem('DB_USERS'))
