@@ -1,5 +1,3 @@
-# Landing
-
 ## Getting Started
 
 - dowload ZIP,
