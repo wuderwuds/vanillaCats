@@ -118,7 +118,7 @@ const modalCardCatForListener = async(event) => {
             if (!res || res.status !== 200) {
                 return 
             } else {
-                const response = await res.json()
+                const response = await res.json();
                 delete response.id
                 Object.keys(response).forEach(key => {
                     document.forms.cats_edit[key].value = response[key]
@@ -202,6 +202,9 @@ document.forms.cat_add.addEventListener('submit', addCatForListener);
 $formAddCat.addEventListener('input', addDataFormAddCatLocalForListener);
 
 $search.addEventListener('input', debouncedSerchForListener);
+
+
+
 
 
 
