@@ -48,13 +48,16 @@ export const render = (data, to = null) => {
             messageCatListZero.innerText = dataCatsNull; 
             return $wrapper.append(messageCatListZero)
         }
-    }
+    };
+
     if(!data) {
         return
     }
+
     if(data.length===0) {
         return messageDataNull(to)        
     }
+    
     data.forEach(cat=> {
         document.body.style.backgroundColor = 'rgb(255,197,0, 0.3)'
         $wrapper.insertAdjacentHTML('afterbegin', generateAllCardsCats(cat))

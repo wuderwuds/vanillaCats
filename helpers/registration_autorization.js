@@ -68,13 +68,13 @@ const autorizationForListener = async(event)=>{
 
 const registrationForListener = async(event)=> {
     event.preventDefault()
-    const objDataValueInput =  Object.fromEntries(new FormData(document.forms.registration).entries());
-    const check = dbLS.users.some(e => e.userName === objDataValueInput.userName);
-    if (!objDataValueInput.userName || !objDataValueInput.userPass) {
+    const objDataValueInputs =  Object.fromEntries(new FormData(document.forms.registration).entries());
+    const check = dbLS.users.some(e => e.userName === objDataValueInputs.userName);
+    if (!objDataValueInputs.userName || !objDataValueInputs.userPass) {
         debounceErrorMessage($registration, 'registration');                  
         return;  
     }
-    SETTING.userName = objDataValueInput.userName;
+    SETTING.userName = objDataValueInputs.userName;
     const res = await apiGetAllCats()
     if (res.length) {
         debounceErrorMessage($registration, 'registration_two');   
@@ -82,13 +82,13 @@ const registrationForListener = async(event)=> {
         if(check) {
             debounceErrorMessage($registration, 'registration_two');  
         } else {
-            SETTING.userName = objDataValueInput.userName;
+            SETTING.userName = objDataValueInputs.userName;
             const res = await apiGetAllCats();
             if(!res) {
                 return;
             } else {
-                localStorage.setItem('userName', objDataValueInput.userName);
-                dbLS.users.push(objDataValueInput);
+                localStorage.setItem('userName', objDataValueInputs.userName);
+                dbLS.users.push(objDataValueInputs);
                 localStorage.setItem('DB_USERS', JSON.stringify(dbLS)) ;
                 $wrapper.replaceChildren();
                 $btnAddcat.classList.remove('btn-add-cat-hidden');
